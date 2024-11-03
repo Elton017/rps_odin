@@ -13,5 +13,16 @@ function getComputerChoice() {
     }
 }
 
-let userChoice = prompt("Enter 1 for Rock, 2 for Paper or 3 for Scissors")
+let humanChoice = prompt("Enter 1 for Rock, 2 for Paper or 3 for Scissors")
 
+function getHumanChoice() {
+    if (humanChoice == 1){
+        return "Rock"
+    }
+    else if (humanChoice == 2) {
+        return "Paper"
+    }
+    else if (humanChoice == 3) {
+        return "Scissors"
+    }
+}
