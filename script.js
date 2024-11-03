@@ -3,62 +3,62 @@
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     if (randomNum == 1) {
-        return "rock"
+        return "rock";
     }
     else if (randomNum == 2) {
-        return "scissors"
+        return "scissors";
     }
     else if (randomNum == 0) {
-        return "paper"
+        return "paper";
     }
 }
 
 function getHumanChoice() {
-    return prompt("Enter Rock, Paper or Scissors").toLowerCase()
+    return prompt("Enter Rock, Paper or Scissors (see console for results)").toLowerCase();
 }
 
 
-function playRound(humanScore, computerScore) {
-    humanSelection = getHumanChoice()
-    computerSelection = getComputerChoice()
+function playRound() {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
 
-    if (computerSelection == "rock") {
-        if (humanSelection == "scissors") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you lose! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "loss"
+    if (humanSelection == computerSelection) {
+        console.log(`You've both picked ${humanSelection}, its a draw!`);
+        return "draw";
+    }
+    if (humanSelection == "rock") {
+        if (computerSelection == "scissors") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
+            return "win";
         }
-        else if (humanSelection == "Paper") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you win! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "win"
+        else if (computerSelection == "paper") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
+            return "loss";
         }
     }
-    else if (computerSelection == "paper") {
-        if (humanSelection == "scissors") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you win! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "win"
+    if (humanSelection == "scissors") {
+        if (computerSelection == "rock") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
+            return "win";
         }
-        else if (humanSelection == "rock") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you lose! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "loss"
-        }
-    }
-    else if (computerSelection == "scissors") {
-        if (humanSelection == "rock") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you win! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "win"
-        }
-        else if (humanSelection == "paper") {
-            console.log(`You picked ${humanSelection} vs ${computerSelection}, you lose! Your score: ${humanScore}, Computer score: ${computerScore}`)
-            return "loss"
+        else if (computerSelection == "paper") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
+            return "loss";
         }
     }
-    else if (computerSelection == humanSelection) {
-        console.log(`You've both picked ${computerSelection}, it's a draw!`)
-        return "draw"
+    if (humanSelection == "paper") {
+        if (computerSelection == "scissors") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
+            return "win";
+        }
+        else if (computerSelection == "rock") {
+            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
+            return "loss";
+        }
     }
-    else {
-        console.log("Invalid choice, please try again (Rock, Paper or Scissors)")
-        return "draw"
+    if (humanSelection !== "rock" && humanSelection !== "paper" && humanSelection !== "scissors") {
+        console.log("Invalid input! Try again.");
+        return "draw";
     }
 }
 
