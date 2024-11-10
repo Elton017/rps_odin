@@ -13,75 +13,16 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    return prompt("Enter Rock, Paper or Scissors (see console for results)").toLowerCase();
+function playGame(choice) {
+    const computerChoice = getComputerChoice();
+    let playerChoice = choice;
+    console.log(playerChoice)
 }
 
+const rockButton = document.querySelector(".rock");
+const scissorButton = document.querySelector(".scissors");
+const paperButton = document.querySelector(".paper");
 
-function playRound() {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-
-    if (humanSelection == computerSelection) {
-        console.log(`You've both picked ${humanSelection}, its a draw!`);
-        return "draw";
-    }
-    if (humanSelection == "rock") {
-        if (computerSelection == "scissors") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
-            return "win";
-        }
-        else if (computerSelection == "paper") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
-            return "loss";
-        }
-    }
-    if (humanSelection == "scissors") {
-        if (computerSelection == "rock") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
-            return "win";
-        }
-        else if (computerSelection == "paper") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
-            return "loss";
-        }
-    }
-    if (humanSelection == "paper") {
-        if (computerSelection == "scissors") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you WIN!`);
-            return "win";
-        }
-        else if (computerSelection == "rock") {
-            console.log(`You've picked ${humanSelection} against ${computerSelection}, you LOSE!`);
-            return "loss";
-        }
-    }
-    if (humanSelection !== "rock" && humanSelection !== "paper" && humanSelection !== "scissors") {
-        console.log("Invalid input! Try again.");
-        return "draw";
-    }
-}
-
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let result = playRound();
-        if (result == "win") {
-            humanScore += 1
-        }
-        else if (result == "loss") {
-            computerScore += 1
-        }
-        else if (result == "draw") {
-            i -= 1
-        }
-        console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`)
-    }
-    if (humanScore > computerScore){
-        console.log(`You win with a score of ${humanScore} to ${computerScore}`)
-    }
-    else {
-        console.log(`You lose with a score of ${humanScore} to ${computerScore}`)
-    }
-}
+rockButton.addEventListener("click", () => playGame("rock"));
+scissorButton.addEventListener("click", () => playGame("scissors"));
+paperButton.addEventListener("click", () => playGame("paper"))
